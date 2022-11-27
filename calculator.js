@@ -16,12 +16,13 @@ buttons.map( button => {
             case '=': 
             try{
                 display.innerText = eval(display.innerText);
-            }    catch {
+            }    
+            catch {
                 display.innerText = 'Error!';
             }
             break;
         default: 
-        display.innerText += e.target.innerText;
+      display.innerText += e.target.innerText; 
        }
     });
 });
