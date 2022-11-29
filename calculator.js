@@ -4,7 +4,27 @@ let buttons = Array.from(document.getElementsByClassName('button'));
 
 buttons.map( button => {
     button.addEventListener('click', (e) => {
-       switch(e.target.innerText){
+       try{
+        if (e.target.innerText=='C'){
+            display.innerText = '';
+        }
+        else if ( e.target.innerText =='←'){
+            if(display.innerText) {
+                display.innerText = display.innerText.slice(0, -1);
+            }
+        }
+         else if (e.target.innerText=='='){
+            display.innerText =  eval(display.innerText);
+           
+        }
+        else{
+      
+            display.innerText += e.target.innerText; 
+        }
+       }catch(e){
+        display.innerText='Invalid Input'
+       }
+     /*  switch(e.target.innerText){
         case 'C':
             display.innerText = '';
             break;
@@ -21,9 +41,9 @@ buttons.map( button => {
                 display.innerText = 'Error!';
             }
             break;
-        default: 
-      display.innerText += e.target.innerText; 
-       }
+        default: */
+     // display.innerText += e.target.innerText; 
+       
     });
 });
 
